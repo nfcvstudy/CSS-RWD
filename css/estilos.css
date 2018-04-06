@@ -1,0 +1,35 @@
+*{
+  background-color: black;
+  color: white;
+}
+
+header h1{
+  background-color: #5b7989;
+  text-align: left;
+  text-shadow: 2px 2px 2px #02010a;
+}
+
+header h1{
+  border-radius: 10px 10px 0 0;
+  -moz-border-radius:10px 10px 0 0;
+  -webkit-border-radius: 10px 10px 0 0;
+}
+
+#menu-principal{
+  text-align: right;
+}
+
+#menu-principal>ul li{
+  display:none;
+}
+
+a{
+  text-decoration: none;
+}
+
+/* Version Desktop */
+@media (min-width:800px){
+  #menu-principal>ul li{
+    display:inline-block;
+  }
+}
