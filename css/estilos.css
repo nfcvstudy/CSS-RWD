@@ -1,6 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+
+/* No Funciono:
+@font-face {
+  font-family: "Dancing Script";
+  src: url('https://fonts.googleapis.com/css?family=Dancing+Script');
+}
+*/
+
 *{
-  background-color: black;
-  color: white;
+  background-color: #02010a;      /* 2. Consideraciones Generales */
+  font-family: "Dancing Script";  /* 1. Consideraciones Generales */
+  color:white;
 }
 
 header h1{
@@ -15,21 +25,297 @@ header h1{
   -webkit-border-radius: 10px 10px 0 0;
 }
 
-#menu-principal{
-  text-align: right;
+li{
+  margin-left: 10px;
 }
 
 #menu-principal>ul li{
-  display:none;
+  display:inline-block;
 }
 
 a{
   text-decoration: none;
 }
 
+a:link, a:visited {
+	padding: 0 1px;
+	text-decoration: none;
+  color:white;
+}
+
+nav a:hover{
+  background-color: brown;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+
+}
+
+/* 4. Consideraciones Generales - INICIO */
+
 /* Version Desktop */
-@media (min-width:800px){
-  #menu-principal>ul li{
-    display:inline-block;
+@media (min-width:900px){  /* 5. Consideraciones Generales */
+  #contenido{
+    max-width: 900px;
+    margin: 0 auto;
   }
+}
+
+/* Version Moviles */
+@media (max-width:900px){ /* 5. Consideraciones Generales */
+  #contenido{
+    width: 100%;
+  }
+}
+/* 4. Consideraciones Generales - FIN */
+
+/* Version Desktop */
+@media (min-width:900px){ /* 5. Consideraciones Generales */
+  #menu-principal{
+    text-align: center;
+  }
+}
+
+/* Imagenes */
+figure{
+  width: 40%;       /* 6. Consideraciones Generales */
+  margin: 0 auto;
+  text-align: center;
+}
+
+figure img{
+  width:90%;    /* 6. Consideraciones Generales */
+  height: 90%;  /* 6. Consideraciones Generales */
+  padding: 5px;
+  margin-top: 2%;
+}
+
+.contenedor-imagenes{
+  width: 100%;   /* 6. Consideraciones Generales */
+}
+
+/* Imagen Central */
+
+/* el color del fondo de la pagina es "#02010a"
+   por lo que se el color de fondo es el mismo
+   de las otras imagenes "#d5c75f"
+*/
+
+#imagen-central figure {
+  background-color: #82c3a6;
+  box-shadow: 2px 2px 5px 0 rgb(130, 195, 166); /* 3. Consideraciones Generales */
+}
+
+/* Imagenes Secundarias*/
+#imagenes-secundarias{
+  margin-top: 15px;
+}
+
+/* Version Desktop */
+@media (min-width:900px){  /* 5. Consideraciones Generales */
+  #imagenes-secundarias{
+    display: flex;
+  }
+
+  #imagenes-secundarias div{
+    width: 50%;    /* 6. Consideraciones Generales */
+  }
+}
+
+/* Version Movil */
+@media (max-width:900px){  /* 5. Consideraciones Generales */
+  #imagenes-secundarias div{
+    width: 100%;  /* 6. Consideraciones Generales */
+  }
+}
+
+#imagenes-secundarias figure{
+  background-color: #d5c75f;
+}
+
+#imagenes-secundarias figure > img{
+  border: 1px solid red;
+}
+
+/* imagen-izquierda */
+#imagenes-secundarias :first-child :hover{
+  transform: rotate(10deg);
+  -ms-transform: rotate(10deg);     /* IE 9 */
+  -webkit-transform: rotate(10deg); /* Chrome, Safari, Opera */
+  transform: rotate(10deg);
+}
+
+/* #82c3a6 a RGB */
+#imagen-izquierda{
+  box-shadow: 2px 2px 5px 0 rgb(130, 195, 166);
+}
+
+/* imagen-derecha */
+#imagenes-secundarias :last-child :hover{
+  transform: translate(20px, -5px);
+}
+
+/* #82c3a6 a RGB */
+#imagen-derecha{
+  box-shadow: 2px 2px 5px 0 rgb(130, 195, 166);
+}
+
+footer{
+  margin-top: 10px;
+}
+
+#contenedor-footer{
+  width:100%;
+}
+
+#contenedor-footer div{
+  background-color: #c6d5c5;
+  /* Color de fuente marron para contrastar */
+  color: brown;
+}
+
+/* Version Desktop */
+@media (min-width:900px){  /* 5. Consideraciones Generales */
+  footer #contenedor-footer{
+    display: flex;
+  }
+
+  footer #contenedor-footer div{
+    width: 25%;  /* Cuatro Columnas */
+  }
+
+  #contenedor-footer :first-child{
+    border-radius: 0px 0px 0px 10px;
+    -moz-border-radius:0px 0px 0px 10px;
+    -webkit-border-radius: 0px 0px 0px 10px;
+  }
+
+  #contenedor-footer :last-child{
+    border-radius: 0px 0px 10px 0px;
+    -moz-border-radius:0px 0px 10px 0px;
+    -webkit-border-radius: 0px 0px 10px 0px;
+  }
+  #contacto, #terminos, #redes-sociales, #derechos{
+    border-left: 2px solid black;
+  }
+}
+
+/* Version Movil */
+@media (max-width:900px){  /* 5. Consideraciones Generales */
+  footer #contenedor-footer div{
+    width: 100%;   /* Una Columna */
+  }
+  #contenedor-footer :last-child{
+    border-radius: 0px 0px 10px 10px;
+    -moz-border-radius:0px 0px 10px 10px;
+    -webkit-border-radius: 0px 0px 10px 10px;
+  }
+  #contacto, #terminos, #redes-sociales, #derechos{
+    border-top: 2px solid black;
+  }
+}
+
+#contacto, #terminos, #derechos{
+  text-align: center;
+  border-top: 2px solid black;
+}
+
+#redes-sociales{
+  width: 100%;   /* 6. Consideraciones Generales */
+  background-color: white;
+  text-align: center;
+}
+
+#redes-sociales img{
+  width: 25%;  /* 6. Consideraciones Generales */
+  max-width: 50px;
+  max-height: 50px;
+}
+
+/* Los siguientes estilos aplican para paisajes y retratos */
+
+/* Version Desktop */
+@media (min-width:900px){  /* 5. Consideraciones Generales */
+  #galeria{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  #galeria div{
+    width: 33%;    /* 6. Consideraciones Generales */
+    margin-top: 10px;
+  }
+}
+
+/* Version Movil */
+@media (max-width:900px){  /* 5. Consideraciones Generales */
+  #galeria div{
+    width: 100%;  /* 6. Consideraciones Generales */
+  }
+}
+
+#galeria figure{
+  width: 100%;
+}
+
+#galeria figure > img{
+  width: 100%;
+  padding: 15px;
+}
+
+#imagen-1{
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+}
+
+#galeria div:nth-child(even){
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+}
+
+#galeria div:nth-child(3){
+  filter: sepia(90%);
+  -webkit-filter: sepia(90%);
+}
+
+/* Considereaciones finales*/
+/* 1. para la version movil muestra centrado el menu y debajo el titulo */
+
+/* Version Moviles */
+@media (max-width:900px){ /* 5. Consideraciones Generales */
+  #menu-principal{
+    text-align: center;
+  }
+
+}
+/* Version Desktop */
+@media (min-width:900px){ /* 5. Consideraciones Generales */
+  #menu-principal{
+    text-align: right;
+  }
+}
+
+/* 2. para ambas versioens animar el header*/
+@keyframes header-animacion {
+	0% {
+			margin-top: 150%;
+		}
+	60% {
+			margin-top: -5%;
+		}
+	100% {
+			margin-top: 0%;
+	}
+}
+
+header h1{
+  /*  animation: header-animacion 2s; /*/
+	animation-name: header-animacion;
+	animation-duration: 2s;
+	-webkit-animation-delay: 1s;
+	-moz-animation-delay: 1s;
+	-o-animation-delay: 1s;
+	animation-delay: 1s;
 }
