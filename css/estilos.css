@@ -7,22 +7,27 @@
 }
 */
 
-*{
+body{
   background-color: #02010a;      /* 2. Consideraciones Generales */
   font-family: "Dancing Script";  /* 1. Consideraciones Generales */
   color:white;
 }
 
-header h1{
+header{
+  display:flex;
+  width: 100%;
   background-color: #5b7989;
-  text-align: left;
-  text-shadow: 2px 2px 2px #02010a;
-}
-
-header h1{
   border-radius: 10px 10px 0 0;
   -moz-border-radius:10px 10px 0 0;
   -webkit-border-radius: 10px 10px 0 0;
+}
+
+header h1{
+  text-shadow: 2px 2px 2px #02010a;
+}
+
+header nav ul{
+
 }
 
 li{
@@ -48,31 +53,64 @@ nav a:hover{
   border-radius: 3px 3px 3px 3px;
   -moz-border-radius: 3px 3px 3px 3px;
   -webkit-border-radius: 3px 3px 3px 3px;
-
 }
 
 /* 4. Consideraciones Generales - INICIO */
 
 /* Version Desktop */
 @media (min-width:900px){  /* 5. Consideraciones Generales */
-  #contenido{
+  body{
     max-width: 900px;
-    margin: 0 auto;
+    margin:0 auto;
   }
-}
 
-/* Version Moviles */
-@media (max-width:900px){ /* 5. Consideraciones Generales */
+  header, footer{
+    width: 100%;
+  }
+
+  header h1, nav{
+    width: 50%;
+  }
+
+  header h1{
+    text-align: left;
+    margin-left: 20px;
+  }
+  header nav{
+    text-align: right;
+    margin-top: 20px;
+    margin-right: 20px;
+  }
   #contenido{
     width: 100%;
   }
 }
+/* Version Moviles */
+@media (max-width:900px){ /* 5. Consideraciones Generales */
+  #contenido, header, footer{
+    width: 100%;
+  }
+  header{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  header h1, nav{
+    width: 100%;
+  }
+  header h1{
+    text-align: center;
+  }
+  header nav{
+    text-align: center;    
+  }
+}
+
 /* 4. Consideraciones Generales - FIN */
 
 /* Version Desktop */
 @media (min-width:900px){ /* 5. Consideraciones Generales */
   #menu-principal{
-    text-align: center;
+
   }
 }
 
@@ -86,7 +124,7 @@ figure{
 figure img{
   width:90%;    /* 6. Consideraciones Generales */
   height: 90%;  /* 6. Consideraciones Generales */
-  padding: 5px;
+  padding: 0px;
   margin-top: 2%;
 }
 
@@ -101,14 +139,23 @@ figure img{
    de las otras imagenes "#d5c75f"
 */
 
-#imagen-central figure {
+#imagen-central{
+  width: 100%;
   background-color: #82c3a6;
+  text-align: center;
+}
+
+#imagen-central img {
+  background-color: #82c3a6;
+  border: 2px solid black;
   box-shadow: 2px 2px 5px 0 rgb(130, 195, 166); /* 3. Consideraciones Generales */
+  margin-top: 3px;
 }
 
 /* Imagenes Secundarias*/
 #imagenes-secundarias{
-  margin-top: 15px;
+  width: 100%;
+  background-color: #d5c75f;
 }
 
 /* Version Desktop */
@@ -134,11 +181,11 @@ figure img{
 }
 
 #imagenes-secundarias figure > img{
-  border: 1px solid red;
+  border: 1px solid black;
 }
 
 /* imagen-izquierda */
-#imagenes-secundarias :first-child :hover{
+#imagen-izquierda img:hover{
   transform: rotate(10deg);
   -ms-transform: rotate(10deg);     /* IE 9 */
   -webkit-transform: rotate(10deg); /* Chrome, Safari, Opera */
@@ -146,32 +193,29 @@ figure img{
 }
 
 /* #82c3a6 a RGB */
-#imagen-izquierda{
+#imagen-izquierda img{
   box-shadow: 2px 2px 5px 0 rgb(130, 195, 166);
 }
 
 /* imagen-derecha */
-#imagenes-secundarias :last-child :hover{
+#imagen-derecha img:hover{
   transform: translate(20px, -5px);
 }
 
 /* #82c3a6 a RGB */
-#imagen-derecha{
+#imagen-derecha img{
   box-shadow: 2px 2px 5px 0 rgb(130, 195, 166);
-}
-
-footer{
-  margin-top: 10px;
 }
 
 #contenedor-footer{
   width:100%;
+  margin: 0 auto;
 }
 
 #contenedor-footer div{
   background-color: #c6d5c5;
-  /* Color de fuente marron para contrastar */
-  color: brown;
+  /* Color de fuente negro para contrastar */
+  color: black;
 }
 
 /* Version Desktop */
@@ -195,13 +239,15 @@ footer{
     -moz-border-radius:0px 0px 10px 0px;
     -webkit-border-radius: 0px 0px 10px 0px;
   }
-  #contacto, #terminos, #redes-sociales, #derechos{
-    border-left: 2px solid black;
-  }
 }
 
 /* Version Movil */
 @media (max-width:900px){  /* 5. Consideraciones Generales */
+  footer #contenedor-footer{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   footer #contenedor-footer div{
     width: 100%;   /* Una Columna */
   }
@@ -210,14 +256,11 @@ footer{
     -moz-border-radius:0px 0px 10px 10px;
     -webkit-border-radius: 0px 0px 10px 10px;
   }
-  #contacto, #terminos, #redes-sociales, #derechos{
-    border-top: 2px solid black;
-  }
 }
 
 #contacto, #terminos, #derechos{
   text-align: center;
-  border-top: 2px solid black;
+
 }
 
 #redes-sociales{
@@ -233,6 +276,10 @@ footer{
 }
 
 /* Los siguientes estilos aplican para paisajes y retratos */
+#galeria{
+  background-color: #d5c75f;
+  margin: 0 auto;
+}
 
 /* Version Desktop */
 @media (min-width:900px){  /* 5. Consideraciones Generales */
@@ -241,11 +288,17 @@ footer{
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    background-color: #d5c75f;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
   #galeria div{
     width: 33%;    /* 6. Consideraciones Generales */
     margin-top: 10px;
+  }
+  #galeria div>img{
+    margin: 0 auto;
   }
 }
 
@@ -256,16 +309,17 @@ footer{
   }
 }
 
-#galeria figure{
+#galeria {
   width: 100%;
 }
 
-#galeria figure > img{
-  width: 100%;
+#galeria img{
+  width: 90%;
   padding: 15px;
+  margin: 0 auto;
 }
 
-#imagen-1{
+#galeria div:nth-child(1){
   filter: blur(10px);
   -webkit-filter: blur(10px);
 }
@@ -310,7 +364,7 @@ footer{
 	}
 }
 
-header h1{
+header {
   /*  animation: header-animacion 2s; /*/
 	animation-name: header-animacion;
 	animation-duration: 2s;
